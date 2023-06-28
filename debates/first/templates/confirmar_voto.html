@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Confirmación de voto</h1>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      Swal.fire({
+        title: 'Confirmación de voto',
+        text: '{{ mensaje }}',
+        icon: 'success',
+        confirmButtonText: 'Aceptar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = "{% url 'home' %}";
+        }
+      });
+    });
+  </script>
+{% endblock %}
+
+
+

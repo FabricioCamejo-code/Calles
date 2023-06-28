@@ -1,0 +1,629 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+
+<div id="graficarr" style="height: 400px;"></div>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<script>
+  var trace1 = {
+      x: [{% for voto in votos_por_calle %}"{{ voto.calle__nombre }}", {% endfor %}],
+      y: [{% for voto in votos_por_calle %}{{ voto.num_votos  }}, {% endfor %}],
+      type: 'scatter', // cambiado de 'bar' a 'scatter'
+      mode: 'lines+markers', // agregado para mostrar líneas y marcadores
+      marker: {
+        color: 'rgb(50, 171, 96)',
+        opacity: 0.7,
+      }
+    };
+  
+    var data = [trace1];
+  
+    var layout = {
+      title: 'Votos por calle',
+      xaxis: {
+        title: 'Calle',
+        tickfont: {
+          size: 14,
+          color: 'rgb(107, 107, 107)'
+        }
+      },
+      yaxis: {
+        title: 'Número de votos',
+        titlefont: {
+          size: 16,
+          color: 'rgb(107, 107, 107)'
+        },
+        tickfont: {
+          size: 14,
+          color: 'rgb(107, 107, 107)'
+        }
+      },
+      legend: {
+        x: 0,
+        y: 1.0,
+        bgcolor: 'rgba(255, 255, 255, 0)',
+        bordercolor: 'rgba(255, 255, 255, 0)'
+      },
+      hovermode: 'closest',
+      margin: {
+        l: 75,
+        r: 50,
+        b: 75,
+        t: 100,
+        pad: 4
+      },
+      paper_bgcolor: 'rgb(248, 248, 255)',
+      plot_bgcolor: 'rgb(248, 248, 255)'
+    };
+  
+    Plotly.newPlot('graficarr', data, layout);    
+  </script>
+
+
+
+
+
+
+
+<div id="grafica" style="height: 400px;"></div>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<script>
+  var trace1 = {
+      x: [{% for voto in votos_por_calle %}"{{ voto.calle__nombre }}", {% endfor %}],
+      y: [{% for voto in votos_por_calle %}{{ voto.num_votos }}, {% endfor %}],
+      type: 'bar',
+      marker: {
+        color: 'rgb(50, 171, 96)',
+        opacity: 0.7,
+      }
+    };
+  
+    var data = [trace1];
+  
+    var layout = {
+      title: 'Votos por calle',
+      xaxis: {
+        title: 'Calle',
+        tickfont: {
+          size: 14,
+          color: 'rgb(107, 107, 107)'
+        }
+      },
+      yaxis: {
+        title: 'Número de votos',
+        titlefont: {
+          size: 16,
+          color: 'rgb(107, 107, 107)'
+        },
+        tickfont: {
+          size: 14,
+          color: 'rgb(107, 107, 107)'
+        }
+      },
+      legend: {
+        x: 0,
+        y: 1.0,
+        bgcolor: 'rgba(255, 255, 255, 0)',
+        bordercolor: 'rgba(255, 255, 255, 0)'
+      },
+      barmode: 'group',
+      bargap: 0.15,
+      bargroupgap: 0.1,
+      hovermode: 'closest',
+      margin: {
+        l: 75,
+        r: 50,
+        b: 75,
+        t: 100,
+        pad: 4
+      },
+      paper_bgcolor: 'rgb(248, 248, 255)',
+      plot_bgcolor: 'rgb(248, 248, 255)'
+    };
+  
+    Plotly.newPlot('grafica', data, layout);    
+  </script>
+
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Votos por calle</h3>
+      <div id="graficocalle"></div>
+    </div>
+    <div class="col-md-6">
+      <h3>Participación por calle</h3>
+      {% for voto in votos_por_calle %}
+        <div class="d-flex align-items-center mb-3">
+          <div class="p-2" style="background-color: {{ calle.color }}; width: 20px; height: 20px;"></div>
+          <div class="p-2">{{ voto.calle__nombre }}: {{ voto.num_votos }}%</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+  var calle = [{% for voto in votos_por_calle %}"{{ voto.calle__nombre }}", {% endfor %}];
+  var porcentajes = [{% for voto in votos_por_calle %}{{ voto.num_votos }}, {% endfor %}];
+
+  var data = [{
+    values: porcentajes,
+    labels: calle,
+    type: 'pie',
+    marker: {
+        colors: ['rgb(225, 0, 0)', 'rgb(0, 215, 0)', 'rgb(0, 0, 245)', 'rgb(255, 235, 0)', 'rgb(235, 0, 235)', 'rgb(0, 255, 255)']
+    }  
+   }];
+  var layout = {
+    title: 'Porcentaje de votos por calle',
+    font: {
+        family: 'Arial, sans-serif',
+        size: 14
+    },
+    legend: {
+        x: 0,
+        y: 1
+    }
+   };
+
+
+  Plotly.newPlot('graficocalle', data, layout);
+</script>
+
+
+
+
+
+
+<div id="grafic" style="height: 400px;"></div>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<script>
+  var trace1 = {
+      x: [{% for voto in voto_por_ciudad %}"{{ voto.ciudad__nombre }}", {% endfor %}],
+      y: [{% for voto in voto_por_ciudad %}{{ voto.num_votos  }}, {% endfor %}],
+      type: 'scatter', // cambiado de 'bar' a 'scatter'
+      mode: 'lines+markers', // agregado para mostrar líneas y marcadores
+      marker: {
+        color: 'rgb(50, 171, 96)',
+        opacity: 0.7,
+      }
+    };
+  
+    var data = [trace1];
+  
+    var layout = {
+      title: 'Votos por ciudad',
+      xaxis: {
+        title: 'Ciudad',
+        tickfont: {
+          size: 14,
+          color: 'rgb(107, 107, 107)'
+        }
+      },
+      yaxis: {
+        title: 'Número de votos',
+        titlefont: {
+          size: 16,
+          color: 'rgb(107, 107, 107)'
+        },
+        tickfont: {
+          size: 14,
+          color: 'rgb(107, 107, 107)'
+        }
+      },
+      legend: {
+        x: 0,
+        y: 1.0,
+        bgcolor: 'rgba(255, 255, 255, 0)',
+        bordercolor: 'rgba(255, 255, 255, 0)'
+      },
+      hovermode: 'closest',
+      margin: {
+        l: 75,
+        r: 50,
+        b: 75,
+        t: 100,
+        pad: 4
+      },
+      paper_bgcolor: 'rgb(248, 248, 255)',
+      plot_bgcolor: 'rgb(248, 248, 255)'
+    };
+  
+    Plotly.newPlot('grafic', data, layout);    
+  </script>
+
+
+
+
+
+
+
+<div id="graficados" style="height: 400px;"></div>
+
+<script>
+var trace1 = {
+    x: [{% for voto in voto_por_ciudad %}"{{ voto.ciudad__nombre }}", {% endfor %}],
+    y: [{% for voto in voto_por_ciudad %}{{ voto.num_votos }}, {% endfor %}],
+    type: 'bar',
+    marker: {
+      color: 'rgb(139, 159, 247)',
+      opacity: 0.7,
+    }
+  };
+
+  var data = [trace1];
+
+  var layout = {
+    title: 'Voto por ciudad',
+    xaxis: {
+      title: 'Ciudad',
+      tickfont: {
+        size: 14,
+        color: 'rgb(107, 107, 107)'
+      }
+    },
+    yaxis: {
+      title: 'Número de votos',
+      titlefont: {
+        size: 16,
+        color: 'rgb(107, 107, 107)'
+      },
+      tickfont: {
+        size: 14,
+        color: 'rgb(107, 107, 107)'
+      }
+    },
+    legend: {
+      x: 0,
+      y: 1.0,
+      bgcolor: 'rgba(255, 255, 255, 0)',
+      bordercolor: 'rgba(255, 255, 255, 0)'
+    },
+    barmode: 'group',
+    bargap: 0.15,
+    bargroupgap: 0.1,
+    hovermode: 'closest',
+    margin: {
+      l: 75,
+      r: 50,
+      b: 75,
+      t: 100,
+      pad: 4
+    },
+    paper_bgcolor: 'rgb(248, 248, 255)',
+    plot_bgcolor: 'rgb(248, 248, 255)'
+  };
+
+  Plotly.newPlot('graficados', data, layout);    
+</script>
+
+
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Votos por ciudad</h3>
+      <div id="graficociudad"></div>
+    </div>
+    <div class="col-md-6">
+      <h3>Participación por ciudad</h3>
+      {% for voto in voto_por_ciudad %}
+        <div class="d-flex align-items-center mb-3">
+          <div class="p-2" style="background-color: {{ ciudad.color }}; width: 20px; height: 20px;"></div>
+          <div class="p-2">{{ voto.ciudad__nombre }}: {{ voto.num_votos }}%</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+  var paises = [{% for voto in voto_por_ciudad %}"{{ voto.ciudad__nombre }}", {% endfor %}];
+  var porcentajes = [{% for voto in voto_por_ciudad %}{{ voto.num_votos }}, {% endfor %}];
+
+  var data = [{
+    values: porcentajes,
+    labels: paises,
+    type: 'pie',
+    marker: {
+        colors: ['rgb(225, 0, 0)', 'rgb(0, 215, 0)', 'rgb(0, 0, 245)', 'rgb(255, 235, 0)', 'rgb(235, 0, 235)', 'rgb(0, 255, 255)']
+    }  
+   }];
+  var layout = {
+    title: 'Porcentaje de votos por ciudad',
+    font: {
+        family: 'Arial, sans-serif',
+        size: 14
+    },
+    legend: {
+        x: 0,
+        y: 1
+    }
+   };
+
+
+  Plotly.newPlot('graficociudad', data, layout);
+</script>
+
+
+
+
+
+
+<div id="graficap" style="height: 400px;"></div>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<script>
+  var trace1 = {
+      x: [{% for voto in voto_por_pais %}"{{ voto.pais__nombre }}", {% endfor %}],
+      y: [{% for voto in voto_por_pais %}{{ voto.num_votos  }}, {% endfor %}],
+      type: 'scatter', // cambiado de 'bar' a 'scatter'
+      mode: 'lines+markers', // agregado para mostrar líneas y marcadores
+      marker: {
+        color: 'rgb(50, 171, 96)',
+        opacity: 0.7,
+      }
+    };
+  
+    var data = [trace1];
+  
+    var layout = {
+      title: 'Votos por pais',
+      xaxis: {
+        title: 'Calle',
+        tickfont: {
+          size: 14,
+          color: 'rgb(107, 107, 107)'
+        }
+      },
+      yaxis: {
+        title: 'Número de votos',
+        titlefont: {
+          size: 16,
+          color: 'rgb(107, 107, 107)'
+        },
+        tickfont: {
+          size: 14,
+          color: 'rgb(107, 107, 107)'
+        }
+      },
+      legend: {
+        x: 0,
+        y: 1.0,
+        bgcolor: 'rgba(255, 255, 255, 0)',
+        bordercolor: 'rgba(255, 255, 255, 0)'
+      },
+      hovermode: 'closest',
+      margin: {
+        l: 75,
+        r: 50,
+        b: 75,
+        t: 100,
+        pad: 4
+      },
+      paper_bgcolor: 'rgb(248, 248, 255)',
+      plot_bgcolor: 'rgb(248, 248, 255)'
+    };
+  
+    Plotly.newPlot('graficap', data, layout);    
+  </script>
+
+
+
+<div id="graficatres"></div>
+
+<style>
+#graficatres {
+  height: 60vh;
+  width: 100%;
+}
+</style>
+
+<script>
+var trace1 = {
+    x: [{% for voto in voto_por_pais %}"{{ voto.pais__nombre }}", {% endfor %}],
+    y: [{% for voto in voto_por_pais %}{{ voto.num_votos }}, {% endfor %}],
+    type: 'bar',
+    marker: {
+      color: 'rgb(0, 128, 255)',
+      opacity: 0.7,
+    }
+  };
+
+  var data = [trace1];
+
+  var layout = {
+    title: 'Voto por pais',
+    xaxis: {
+      title: 'Pais',
+      tickfont: {
+        size: 14,
+        color: 'rgb(107, 107, 107)'
+      }
+    },
+    yaxis: {
+      title: 'Número de votos',
+      titlefont: {
+        size: 16,
+        color: 'rgb(107, 107, 107)'
+      },
+      tickfont: {
+        size: 14,
+        color: 'rgb(107, 107, 107)'
+      }
+    },
+    legend: {
+      x: 0,
+      y: 1.0,
+      bgcolor: 'rgba(255, 255, 255, 0)',
+      bordercolor: 'rgba(255, 255, 255, 0)'
+    },
+    barmode: 'group',
+    bargap: 0.15,
+    bargroupgap: 0.1,
+    hovermode: 'closest',
+    margin: {
+      l: 75,
+      r: 50,
+      b: 75,
+      t: 100,
+      pad: 4
+    },
+    paper_bgcolor: 'rgb(248, 248, 255)',
+    plot_bgcolor: 'rgb(248, 248, 255)'
+  };
+
+  Plotly.newPlot('graficatres', data, layout);    
+</script>
+
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Votos por país</h3>
+      <div id="graficopais"></div>
+    </div>
+    <div class="col-md-6">
+      <h3>Participación por país</h3>
+      {% for voto in voto_por_pais %}
+        <div class="d-flex align-items-center mb-3">
+          <div class="p-2" style="background-color: {{ pais.color }}; width: 20px; height: 20px;"></div>
+          <div class="p-2">{{ voto.pais__nombre }}: {{ voto.num_votos }}%</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+  var paises = [{% for voto in voto_por_pais %}"{{ voto.pais__nombre }}", {% endfor %}];
+  var porcentajes = [{% for voto in voto_por_pais %}{{ voto.num_votos }}, {% endfor %}];
+
+  var data = [{
+    values: porcentajes,
+    labels: paises,
+    type: 'pie',
+    marker: {
+        colors: ['rgb(255, 0, 0)', 'rgb(0, 255, 0)', 'rgb(0, 0, 255)', 'rgb(255, 255, 0)', 'rgb(255, 0, 255)', 'rgb(0, 255, 255)']
+    }  
+   }];
+  var layout = {
+    title: 'Porcentaje de votos por país',
+    font: {
+        family: 'Arial, sans-serif',
+        size: 14
+    },
+    legend: {
+        x: 0,
+        y: 1
+    }
+   };
+
+
+  Plotly.newPlot('graficopais', data, layout);
+</script>
+
+<br>
+
+{% if error %}
+<div class="alert alert-danger" role="alert" style="background-color: #f8d7da; color: #721c24; font-weight: bold;">
+  {{ error }}
+</div>
+{% endif %}
+<h5>Comentarios</h5>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Enviar comentario</button>
+</form>
+
+{% if comments %}
+    <h2>Comentarios:</h2>
+    <ul>
+    {% for comment in comments %}
+        <li style="color: rgb(92, 172, 224);">{{ comment.name }} </li><li>{{ comment.message }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+<style>
+    /* Estilo para el formulario de comentarios */
+form {
+    margin-bottom: 30px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0069d9;
+}
+
+/* Estilo para la lista de comentarios */
+.comments {
+    margin-top: 30px;
+}
+
+.comments li {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.comments li:last-child {
+    margin-bottom: 0;
+}
+
+.comment-name {
+    font-weight: bold;
+}
+
+.comment-date {
+    font-style: italic;
+    color: #666;
+}
+
+</style>
+
+<br>
+{% endblock %}
+

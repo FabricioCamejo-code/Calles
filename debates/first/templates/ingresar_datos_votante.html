@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Ingresar datos del votante</h1>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      Swal.fire({
+        title: 'Confirmar voto',
+        html: `
+          <p>Por favor, confirma tus datos:</p>
+          <p>Email: {{ voto.email }}</p>
+          <p>DNI: {{ voto.dni }}</p>
+          <p>Nombre: {{ voto.nombre_persona }}</p>
+          <p>Apellido: {{ voto.apellido }}</p>
+          <p>{{ calle.nombre }}</p>
+        `,
+        showCancelButton: true,
+        confirmButtonText: 'Confirmar',
+        cancelButtonText: 'Cancelar',
+        focusCancel: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // El formulario ha sido confirmado, enviarlo
+          document.getElementById('form-confirmacion').submit();
+        } else if (result.isDismissed) {
+          // El cuadro de diálogo ha sido cerrado o se hizo clic en "Cancelar"
+          window.location.href = "{% url 'home' %}";
+        }
+      });
+    });
+  </script>
+
+  <form id="form-confirmacion" method="POST" action="{% url 'procesar_voto' voto.token %}">
+    {% csrf_token %}
+  </form>
+{% endblock %}
+
+
+
+
+

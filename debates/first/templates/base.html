@@ -1,0 +1,475 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>ciudadanos por calles CPC</title>
+  <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css?h=025df1ec88740cad5ff14bb3380da6dd">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
+  <link rel="stylesheet" href="/assets/css/styles.min.css?h=76151c3fb882cbc2984793bda4420fe3">
+
+  
+  <meta name="description" content="En nuestra tienda en línea encontrarás los mejores productos al mejor precio. Compra ahora y recibe tu pedido en 24 horas.">
+  <title>{% block title %}Fisrt{% endblock %}</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'styledos.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+  
+
+
+</head>
+
+<body><!-- Start: Navbar Right Links (Dark) -->
+  <nav class="navbar navbar-dark navbar-expand-md bg-dark py-3">
+    <div class="container"><a class="navbar-brand d-flex align-items-center" href="{% static 'images/logo.png' %}"><span
+          class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon"><svg
+            xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16"
+            class="bi bi-bezier" src="{% static 'images/logo.png' %}" alt="Logo">
+            
+          </svg><img src="{% static 'images/logo.png' %}" alt="Logo" width="50em" height="50em" fill="currentColor" viewBox="0 0 16 16"> </span><span>CPC - CiudadanosPorCalles</span></a><button data-bs-toggle="collapse" class="navbar-toggler"
+        data-bs-target="#navcol-5"><span class="visually-hidden">Toggle navigation</span><span
+          class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navcol-5">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="{% url 'home' %}">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'paises' %}#tabla-paises">Empezar Voto</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'listado_votos' %}#tabla-listadovotos">Listado Votos</a></li>
+        </ul><a class="btn btn-primary ms-md-2" role="button" href="{% static 'images/AcercadeNosotros.pdf' %}" download>Acerca de Nosotros</a> 
+      </div>
+    </div>
+  </nav><!-- End: Navbar Right Links (Dark) --><!-- Start: Simple Slider -->
+
+
+   <button id="boton">↕</button>
+
+
+   <style>
+    #lesss {
+      background-image: url("{% static 'images/img1.jpg' %}");
+      background-size: cover;
+      background-position: center center;
+      height: 90vh;
+      padding: 5vh 0;
+      width: 100%;
+    }
+  
+    #lesss h1 {
+      font-size: 4.5vw;
+      margin-top: 0.5em;
+      padding: 3vh 0;
+    }
+  
+    #lesss p {
+      font-size: 2.5vw;
+      margin-bottom: 1em;
+      margin: 10px;
+    }
+  
+    /* Media queries para pantallas más pequeñas */
+    @media (max-width: 768px) {
+      #lesss h1 {
+        font-size: 8vw;
+      }
+  
+      #lesss p {
+        font-size: 4vw;
+        margin: 4px;
+      }
+    }
+  
+    @media (max-width: 576px) {
+      #lesss h1 {
+        font-size: 10vw;
+      }
+  
+      #lesss p {
+        font-size: 5vw;
+        margin: 4px;
+      }
+      
+    }
+  </style>
+  
+  <div  id="lesss">
+    <h1>¿Por qué votar por una calle mejor?</h1>
+    <p>Votar por una calle mejor o informar sobre una calle en mal estado puede tener múltiples beneficios para la comunidad y la ciudad en general.</p>
+    <a href="#demo"><button style="margin: 10px;" type="button" class="btn btn-lg btn-primary" data-bs-toggle="collapse" data-bs-target="#demo">Mas Detalle</button></a>
+
+  </div>
+  
+
+<main>
+  <section class="collapse-section collapse text-center" id="demo">
+    <div class="container" style="background-color: rgb(112, 114, 113);">
+      <p style="color: aliceblue;">Contribuye a mejorar tu ciudad: envía información sobre calles y vota por una nueva</p>
+      <p  style="color: aliceblue;">Tu participación hace la diferencia: envía información sobre calles y vota por una nueva</p>
+      <p  style="color: aliceblue;">Únete a la iniciativa por una ciudad mejor: envía información sobre calles y vota por una nueva</p>
+      <p  style="color: aliceblue;">Comparte tus conocimientos para mejorar la ciudad: envía información sobre calles y vota por una nueva</p>
+      <p  style="color: aliceblue;">"Forma parte del cambio en tu comunidad: envía información sobre calles y vota por una nueva"</p>
+    </div>
+  </section>
+</main>
+
+
+
+
+
+  <div class="toast show">
+    <div class="toast-header">
+      Bienvenido a CPC - CiudadanosPorCalles
+      <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+    </div>
+    <div class="toast-body">
+      Ayúdanos a mejorar nuestra comunidad votando por una calle renovada.
+    </div>
+  </div>
+
+  <div class="container-fluid mt-3 text-center">
+
+    <h2 style="margin:5px; font-family: Helvetica, sans-serif; font-size: 4vw; font-weight: 700; background-image: url({% static 'images/p9.jpg' %}); background-repeat: no-repeat; background-size: cover; padding: 2vw; color: #fff; text-align: center; border-radius: 2vw; width: 80vw; margin: 0 auto; line-height: 0.5;">A mejorar nuestra ciudad</h2>
+
+
+    <br>
+    <p>
+      Bienvenidos al sitio web oficial de votación para la construcción de una nueva calle en nuestra ciudad. Esta página ha sido diseñada para ofrecer una plataforma en línea segura y confiable para que los ciudadanos de nuestra comunidad expresen su opinión y participen en el proceso de toma de decisiones.<br><br>
+  
+      La construcción de una nueva calle es un tema de gran importancia para nuestra ciudad y para todos sus habitantes. La nueva calle no solo mejorará la conectividad y la movilidad dentro de nuestra ciudad, sino que también tendrá beneficios económicos y sociales significativos, incluyendo el fomento del crecimiento económico, la creación de empleos y una mejor calidad de vida para todos los residentes.<br><br>
+      
+      En este sitio web, puede encontrar toda la información necesaria sobre el proyecto de la nueva calle, incluyendo detalles sobre sus beneficios esperados. Además, puede participar en la votación en línea para expresar su apoyo a la construcción de la nueva calle y su contribución positiva a nuestra ciudad.<br><br>
+      
+      Agradecemos su interés y su participación en este importante proyecto para nuestra ciudad. Juntos, podemos hacer una diferencia positiva en nuestra comunidad y en el futuro de nuestra ciudad.
+     </p>
+  
+  
+  </div>
+
+
+
+  <div class="simple-slider"><!-- Start: Slideshow -->
+    <div class="swiper-container"><!-- Start: Slide Wrapper -->
+      <div class="swiper-wrapper"><!-- Start: Slide -->
+        <div class="swiper-slide">
+          <img src="{% static 'images/street.jpg' %}" alt="Los Angeles" class="d-block" style="width:70%; margin: 0 auto; display: block;">
+        </div><!-- End: Slide --><!-- Start: Slide -->
+        <!-- Start: Slide -->
+          <div class="swiper-slide">
+                <img src="{% static 'images/im3.jpg' %}" alt="Los Angeles" class="d-block" style="width:70%; margin: 0 auto; display: block;">
+         </div><!-- End: Slide -->
+
+        <!-- End: Slide --><!-- Start: Slide -->
+        <div class="swiper-slide">
+          <img src="{% static 'images/street3.jpg' %}" alt="Los Angeles" class="d-block" style="width:70%; margin: 0 auto; display: block;">
+        </div><!-- End: Slide -->
+      </div><!-- End: Slide Wrapper --><!-- Start: Pagination -->
+      <div class="swiper-pagination"></div><!-- End: Pagination --><!-- Start: Previous -->
+      <div class="swiper-button-prev"></div><!-- End: Previous --><!-- Start: Next -->
+      <div class="swiper-button-next"></div><!-- End: Next -->
+    </div><!-- End: Slideshow -->
+  </div><!-- End: Simple Slider --><!-- Start: Gallery Offset Grid -->
+
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <div class="container d-flex flex-column align-items-center py-4 py-xl-5">
+    <div class="row gy-4 row-cols-1 row-cols-md-2 w-100" style="max-width: 800px;">
+      <div class="col order-md-first">
+        <div class="card"><img class="card-img w-100 d-block"
+            src="{% static 'images/street3.jpg' %}">
+          <div class="card-img-overlay text-center d-flex flex-column justify-content-center align-items-center p-4">
+            <h4>Objetivo</h4>
+            
+            <p >Para lograr este objetivo, es importante trabajar en colaboración con las autoridades locales y la comunidad en general.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col d-md-flex order-first justify-content-md-start align-items-md-end order-md-1">
+        <div style="width: 80%;">
+          <h2>En nuestra plataforma</h2>
+          <p class="w-lg-50">Podrás votar y enviar información sobre las calles que necesitan atención en tu vecindario, con el fin de que las autoridades locales tomen medidas para mejorarlas. Sabemos lo frustrante que puede ser tener que transitar por una calle en mal estado, y por eso estamos comprometidos a brindar una solución fácil y efectiva. Podrás hacer la diferencia y lograr que tu comunidad sea más segura y agradable para todos. ¡Únete a nuestra iniciativa hoy mismo y mejoremos juntos las calles de nuestra ciudad!.</p>
+        </div>
+      </div>
+      <div class="col order-md-2">
+        <div class="card"><img class="card-img w-100 d-block"
+            src="{% static 'images/street.jpg' %}">
+          <div class="card-img-overlay text-center d-flex flex-column justify-content-center align-items-center p-4">
+            <h4>Sostenibilidad</h4>
+            <p>se debe considerar la sostenibilidad y la eficiencia en el diseño y la construcción, así como el uso de materiales y técnicas de construcción adecuados para asegurar la durabilidad y la seguridad de las carreteras y calles.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col order-md-2">
+        <div class="card"><img class="card-img w-100 d-block"
+            src="{% static 'images/street4.jpg' %}">
+          <div class="card-img-overlay text-center d-flex flex-column justify-content-center align-items-center p-4">
+            <h4>Construyamos</h4>
+            <p>La construcción de calles es una parte vital del desarrollo urbano, ya que facilita la movilidad de las personas y el transporte de bienes y servicios. </p>
+            <style>
+              p {
+                font-size: 1vw;
+              }
+          
+              @media screen and (max-width: 700px) {
+                p {
+                  font-size: 3vw;
+                }
+              }
+            </style>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- End: Gallery Offset Grid --><!-- Start: Team -->
+  <div class="container py-4 py-xl-5">
+    <div class="row mb-4 mb-lg-5">
+      <div class="col-md-8 col-xl-6 text-center mx-auto">
+        <h2>Nuestro equipo</h2>
+        
+        <p class="w-lg-50">Nuestro equipo está formado por desarrolladores web experimentados que están comprometidos en crear soluciones digitales eficaces para satisfacer las necesidades de nuestros clientes.</p>
+        
+        <h2>Habilidades</h2>
+
+        <p class="w-lg-50">Cada miembro del equipo tiene habilidades únicas, incluyendo la experiencia en diseño web, desarrollo de front-end y back-end, creación de aplicaciones web, solución de problemas técnicos, y más. Además, nuestro equipo está siempre actualizado en las últimas tendencias y tecnologías en el mundo del desarrollo web.</p>
+        
+        <h2>Responsabilidades</h2>
+
+        <p class="w-lg-50">El equipo tiene la responsabilidad de trabajar estrechamente con nuestros clientes para entender sus necesidades y objetivos comerciales. A partir de ahí, creamos soluciones personalizadas y efectivas para satisfacer sus necesidades específicas. Además, nuestro equipo se encarga de la implementación, el mantenimiento y la actualización continua de las soluciones creadas.</p>
+        
+        <h2>Logros</h2>
+
+
+        <p class="w-lg-50">Nuestro equipo ha trabajado en proyectos de desarrollo web para una amplia variedad de clientes, desde pequeñas empresas hasta grandes corporaciones. Hemos creado soluciones exitosas que han aumentado la visibilidad en línea de nuestros clientes, mejorado la experiencia del usuario y aumentado la tasa de conversión.</p>
+        
+
+      </div>
+    </div>
+    <div class="row gy-4 row-cols-2 row-cols-md-4">
+      <div class="col">
+        <div class="card border-0 shadow-none">
+          <div class="card-body text-center d-flex flex-column align-items-center p-0"><img
+              class="rounded-circle mb-3 fit-cover" width="130" height="130"
+              src="{% static 'images/c1.png' %}">
+            <h5 class="fw-bold text-primary card-title mb-0"><strong>Ramiro Carlos Rodriguez</strong></h5>
+            <p class="text-muted card-text mb-2">front-end</p>
+            <ul class="list-inline fs-6 text-muted w-100 mb-0">
+              <li class="list-inline-item text-center">
+                <div class="d-flex flex-column align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="1em"
+                    height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-facebook">
+                    <path
+                      d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z">
+                    </path>
+                  </svg></div>
+              </li>
+              <li class="list-inline-item text-center">
+                <div class="d-flex flex-column align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="1em"
+                    height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-twitter">
+                    <path
+                      d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z">
+                    </path>
+                  </svg></div>
+              </li>
+              <li class="list-inline-item text-center">
+                <div class="d-flex flex-column align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="1em"
+                    height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-instagram">
+                    <path
+                      d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z">
+                    </path>
+                  </svg></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card border-0 shadow-none">
+          <div class="card-body text-center d-flex flex-column align-items-center p-0"><img
+              class="rounded-circle mb-3 fit-cover" width="130" height="130"
+              src="{% static 'images/ar.jpg' %}">
+            <h5 class="fw-bold text-primary card-title mb-0"><strong>Fabricio A. Camejo</strong></h5>
+            <p class="text-muted card-text mb-2">Web Developer</p>
+            <ul class="list-inline fs-6 text-muted w-100 mb-0">
+              <li class="list-inline-item text-center">
+                <div class="d-flex flex-column align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="1em"
+                    height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-facebook">
+                    <path
+                      d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z">
+                    </path>
+                  </svg></div>
+              </li>
+              <li class="list-inline-item text-center">
+                <div class="d-flex flex-column align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="1em"
+                    height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-twitter">
+                    <path
+                      d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z">
+                    </path>
+                  </svg></div>
+              </li>
+              <li class="list-inline-item text-center">
+                <div class="d-flex flex-column align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="1em"
+                    height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-instagram">
+                    <path
+                      d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z">
+                    </path>
+                  </svg></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card border-0 shadow-none">
+          <div class="card-body text-center d-flex flex-column align-items-center p-0"><img
+              class="rounded-circle mb-3 fit-cover" width="130" height="130"
+              src="{% static 'images/b2.jpg' %}">
+            <h5 class="fw-bold text-primary card-title mb-0"><strong>Brian C.</strong></h5>
+            <p class="text-muted card-text mb-2">Web Developer netus</p>
+            <ul class="list-inline fs-6 text-muted w-100 mb-0">
+              <li class="list-inline-item text-center">
+                <div class="d-flex flex-column align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="1em"
+                    height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-facebook">
+                    <path
+                      d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z">
+                    </path>
+                  </svg></div>
+              </li>
+              <li class="list-inline-item text-center">
+                <div class="d-flex flex-column align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="1em"
+                    height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-twitter">
+                    <path
+                      d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z">
+                    </path>
+                  </svg></div>
+              </li>
+              <li class="list-inline-item text-center">
+                <div class="d-flex flex-column align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="1em"
+                    height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-instagram">
+                    <path
+                      d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z">
+                    </path>
+                  </svg></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card border-0 shadow-none">
+          <div class="card-body text-center d-flex flex-column align-items-center p-0"><img
+              class="rounded-circle mb-3 fit-cover" width="130" height="130"
+              src="{% static 'images/d1.png' %}">
+            <h5 class="fw-bold text-primary card-title mb-0"><strong>Maria Soledad</strong></h5>
+            <p class="text-muted card-text mb-2">Ciberseguridad</p>
+            <ul class="list-inline fs-6 text-muted w-100 mb-0">
+              <li class="list-inline-item text-center">
+                <div class="d-flex flex-column align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="1em"
+                    height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-facebook">
+                    <path
+                      d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z">
+                    </path>
+                  </svg></div>
+              </li>
+              <li class="list-inline-item text-center">
+                <div class="d-flex flex-column align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="1em"
+                    height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-twitter">
+                    <path
+                      d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z">
+                    </path>
+                  </svg></div>
+              </li>
+              <li class="list-inline-item text-center">
+                <div class="d-flex flex-column align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="1em"
+                    height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-instagram">
+                    <path
+                      d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z">
+                    </path>
+                  </svg></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- End: Team --><!-- Start: Footer Dark Multi Column -->
+
+  <footer class="text-white bg-dark">
+    <div class="container py-4 py-lg-5">
+      <div class="row justify-content-center"><!-- Start: Services -->
+        <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
+          <h3 class="fs-6 text-white">Acerca de Nosotros</h3>
+          <ul class="list-unstyled">
+            <li><a class="link-light">Somos un grupo de ciudadanos comprometidos con el desarrollo y el bienestar de nuestra comunidad.</a></li>
+          </ul>
+        </div><!-- End: Services --><!-- Start: About -->
+        <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
+          <h3 class="fs-6 text-white">Contacto</h3>
+          <ul class="list-unstyled">
+            <li><a class="link-light" href="https://api.whatsapp.com/send?phone=3412534921&text=Hola%20,te%20asesoramos%20por%20whatsapp%20gestiona%20tu%20consulta%20por%20este%20canal">(+549) 341-253-4921</a></li>
+            <li><a class="link-light" href="mailto:first.calles.2023@gmail.com">first.calles.2023@gmail.com</a></li>
+            <li><a class="link-light" href="#">Rosario - Santa Fe</a></li>
+          </ul>
+        </div><!-- End: About --><!-- Start: Careers -->
+        <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
+          <h3 class="fs-6 text-white">Informacion Adicional</h3>
+          <ul class="list-unstyled">
+            <li><a class="link-light" href="{% static 'images/Instruccionesnew.pdf' %}" download>Intrucciones de Usuario</a></li>
+            <li><a class="link-light" href="{% static 'images/PoliticasdePrivacidadnew.pdf' %}" download>Politicas de Privacidad</a></li>
+            <li><a class="link-light" href="{% static 'images/PoliticasdeUsonew.pdf' %}" download>Politicas de Uso</a></li>
+            <li><a class="link-light" href="{% static 'images/PoliticasdeCookiesnew.pdf' %}" download>Politicas de Cookies</a></li>
+          </ul>
+        </div><!-- End: Careers --><!-- Start: Social Icons -->
+        <div
+          class="col-lg-3 text-center text-lg-start d-flex flex-column align-items-center order-first align-items-lg-start order-lg-last item social">
+          <div class="fw-bold d-flex align-items-center mb-2"><span
+              class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center bs-icon me-2"><svg
+                xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16"
+                class="bi bi-bezier fs-5">
+                
+              </svg><img src="{% static 'images/logo.png' %}" alt="Logo" width="40em" height="40em" fill="currentColor" viewBox="0 0 16 16"
+              class="bi bi-bezier fs-5"> </span><span>CPC - CiudadanosPorCalles</span></div>
+          <p class="text-muted copyright">Hay una manera de hacerlo mejor, búscala.</p>
+        </div><!-- End: Social Icons -->
+      </div>
+      <hr>
+      <div class="d-flex justify-content-between align-items-center pt-3">
+        <p class="mb-0">Copyright © 2023 CPC - CiudadanosPorCalles</p>
+        <ul class="list-inline mb-0">
+          <li class="list-inline-item"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+              fill="currentColor" viewBox="0 0 16 16" class="bi bi-facebook">
+              <path
+                d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z">
+              </path>
+            </svg></li>
+          <li class="list-inline-item"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+              fill="currentColor" viewBox="0 0 16 16" class="bi bi-twitter">
+              <path
+                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z">
+              </path>
+            </svg></li>
+          <li class="list-inline-item"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+              fill="currentColor" viewBox="0 0 16 16" class="bi bi-instagram">
+              <path
+                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z">
+              </path>
+            </svg></li>
+        </ul>
+      </div>
+    </div>
+  </footer><!-- End: Footer Dark Multi Column -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+  <script src="/assets/js/script.min.js?h=00fb06278db85b817305707e40b3ce1a"></script>
+  <script type="text/javascript" src="{% static '/assets/js/script.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'arribayabajo.js' %}"></script>
+</body>
+
+</html>

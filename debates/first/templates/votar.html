@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+  <h2 style="font-family: 'Open Sans', sans-serif; font-size: 2vw; font-weight: 700; background-color: #212529; padding: 1vw; color: #fff; text-align: center; border-radius: 0vw; width: 80vw; margin: 0 auto; line-height: 0.7;">Votar {{ calle.nombre }} en {{ ciudad.nombre }}, {{ pais.nombre }}</h2>
+
+
+<br>
+
+{% if error %}
+<div class="alert alert-danger" role="alert" style="background-color: #f8d7da; color: #721c24; font-weight: bold;">
+  {{ error }}
+</div>
+{% endif %}
+
+
+
+<form id="form-votar" method="post" class="form-empresarial" style="max-width: 600px; width: 100%;">
+  {% csrf_token %}
+  <fieldset>
+    <legend style="background-color: #729ed1; color: #FFFFFF; font-family: 'Open Sans', sans-serif; font-size: 3vw; font-weight: 700; padding: 1vw; color: #fff; text-align: center; border-radius: 0vw; width: 90vw; margin: 0 auto; line-height: 0.7;">Ingresar Datos</legend>
+     
+    <div class="form-field">
+      <br>
+      <label for="dni">Nombre<span class="required">*</span></label>
+      <input type="text" name="nombre_persona" id="nombre_persona"  placeholder="Ingrese nombre.." required>
+    </div>
+    <div class="form-field">
+      <label for="dni">Apellido<span class="required">*</span></label>
+      <input type="text" name="apellido" id="apellido"  placeholder="Ingrese apellido.." required>
+    </div>
+    <div class="form-field">
+      <label for="email" style="padding:5px;">Email<span class="required">*</span></label>
+      <input type="email" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Ingrese email.." required>
+    </div>
+    <div class="form-field">
+      <label for="dni">DNI<span class="required">*</span></label>
+      <input type="text" name="dni" id="dni" pattern="[0-9]{8}" placeholder="Ingrese dni.." required>
+    </div>
+    <div class="form-field">
+      <label for="telefono">Teléfono<span class="required">*</span></label>
+      <input type="text" name="telefono" id="telefono" pattern="[0-9]{10}" placeholder="Ingrese telefono.." required>
+    </div>
+  </fieldset>
+  <button type="submit">Votar</button>
+</form>
+
+
+
+
+
+
+{% endblock %}

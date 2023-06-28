@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+<h3 style="padding: 1px; font-family: 'Open Sans', sans-serif; font-size: 3vw; font-weight: 700; background-color: #212529; padding: 0vw; color: #fff; text-align: center; border-radius: 0vw; width: 80vw; margin: 0 auto; line-height: 1.2;">Votar Por reconstrucion de Calle {{ ciudad.nombre }}</h3>
+
+
+<input type="text" id="calles-busqueda" onkeyup="buscarCalles()" placeholder="Buscar calle...">
+
+
+
+
+<table id="tabla-calles" class="table-center">
+  <thead>
+    <tr>
+      <th>Calles Disponibles</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        {% for calle in calles %}
+          <a id="paissss" href="{% url 'votar' calle.id %}#form-votar">
+            <div class="calle-item"> {{ calle.nombre }} ({{ calle.num_votos }} votos)<a href="{% url 'detalles_calle' calle_id=calle.id %}#table-detalledecalle">Ver Detalle</a></div>
+          </a>          
+          {% if not forloop.last %}, {% endif %}
+        {% endfor %}
+      </td> 
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+{% endblock  %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h2 style="font-family: 'Open Sans', sans-serif; font-size: 3vw; font-weight: 700; background-color: #445394; padding: 1vw; color: #fff; text-align: center; border-radius: 2vw; width: 80vw; margin: 0 auto; line-height: 0.7;">Detalles de la calle {{ calle.nombre }}</h2>
+
+  <table id="table-detalledecalle" class="centered table-details" style="max-width: 1000px; width: 100%;">
+    <tr>
+      <th>Ubicación:</th>
+      <td>{{ calle.ubicacion }}</td>
+    </tr>
+    <tr>
+      <th>Dirección:</th>
+      <td>{{ calle.direccion }}</td>
+    </tr>
+    <tr>
+      <th>Estado actual:</th>
+      <td>{{ calle.estado_actual }}</td>
+    </tr>
+    <tr>
+      <th>Problemas actuales:</th>
+      <td>{{ calle.problemas_actuales }}</td>
+    </tr>
+    <tr>
+      <th>Detalles de renovación:</th>
+      <td>{{ calle.detalles_renovacion }}</td>
+    </tr>
+    <br>
+    {% if calle.pdf %}
+    <div style="text-align: center;">
+      <a href="{{ calle.pdf.url }}" download>Descargar PDF para más detalle</a>
+    </div>
+    {% endif %}
+    <br>
+  </table>
+  
+<br>
+  {% if calle.imagen %}
+  <div style="text-align: center;">
+    <img src="{{ calle.imagen.url }}" alt="{{ calle.nombre }}" style="max-width: 400px; width: 100%;">
+  </div>
+  {% endif %}
+
+
+
+{% endblock %}
+
+
+

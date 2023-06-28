@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <h1>Lista de países</h1>
+    <ul>
+        {% for pais in paises %}
+        <li><a href="{% url 'ciudades' pais.id %}">{{ pais.nombre }}</a></li>
+        {% endfor %}
+    </ul>
+
+{% endblock  %}

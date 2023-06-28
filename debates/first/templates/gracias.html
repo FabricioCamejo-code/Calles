@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+  {% if request.session.correo_enviado %}
+    <h1 class="titulo-agradecimiento">¡Gracias por tu voto! Se ha enviado un correo de confirmación.</h1>
+    <p class="mensaje-agradecimiento">Has votado por {{ calle.nombre }} en {{ ciudad.nombre }}, {{ pais.nombre }}.</p>
+    <a class="boton-volver" href="{% url 'calles' ciudad.id %}#tabla-calles">Volver a la lista de calles</a>
+    <script>
+      Swal.fire({
+        title: "Éxito",
+        text: "El voto ha sido enviado y se ha enviado un correo de confirmación.",
+        icon: "success",
+        confirmButtonText: "Volver a la lista",
+      }).then(() => {
+        window.location.href = "{% url 'calles' ciudad.id %}#tabla-calles";
+      });
+    </script>
+  {% else %}
+    <h1 class="titulo-agradecimiento">¡Gracias por tu voto! Se ha enviado un correo de confirmación.</h1>
+    <p class="mensaje-agradecimiento">Has votado por {{ calle.nombre }} en {{ ciudad.nombre }}, {{ pais.nombre }}.</p>
+    <a class="boton-volver" href="{% url 'calles' ciudad.id %}#tabla-calles">Volver a la lista de calles</a>
+  {% endif %}
+{% endblock %}
+
+

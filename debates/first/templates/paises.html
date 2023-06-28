@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<h2  style="font-family: 'Open Sans', sans-serif; font-size: 3vw; font-weight: 700; background-color: #212529; padding: 1vw; color: #fff; text-align: center; border-radius: 0vw; width: 80vw; margin: 0 auto; line-height: 0.5;">Seleccionar Pais</h2>
+
+<h3><input type="text" id="pais-busqueda" onkeyup="buscarPais()" placeholder="Buscar país..."></h3>
+
+<table id="tabla-paises" class="table-center">
+  <thead>
+    <tr>
+      <th style="font-family: Arial, sans-serif; background-color: rgb(240, 241, 243); color: rgb(60, 168, 132);">Paises Disponibles</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        {% for pais in paises %}
+          <a id="paiss" href="{% url 'ciudades' pais.id %}#tabla-ciudades">
+            {{ pais.nombre }}
+          </a>
+          {% if not forloop.last %}, {% endif %}
+        {% endfor %}
+      </td>  
+    </tr>
+  </tbody>
+
+</table>
+
+
+
+
+{% endblock %}
+
+
+
+
+
