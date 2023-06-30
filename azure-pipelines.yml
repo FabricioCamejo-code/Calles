@@ -1,3 +1,7 @@
+steps:
+- checkout: self
+  fetchDepth: 0
+  
 pool:  
   name: default 
 
